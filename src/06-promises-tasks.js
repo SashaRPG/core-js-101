@@ -72,7 +72,7 @@ function processAllPromises(array) {
  *
  */
 function getFastestPromise(array) {
-  return Promise.any(array);
+  return Promise.race(array);
 }
 
 /**
