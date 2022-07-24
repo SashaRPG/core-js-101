@@ -168,8 +168,8 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  return [...str].find((x, _, y) => y.indexOf(x) === y.lastIndexOf(x)) || null;
 }
 
 
@@ -364,8 +364,22 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const resultMatrix = [];
+  for (let i = 0; i < m1.length; i += 1) {
+    resultMatrix[i] = [];
+  }
+
+  for (let i = 0; i < m2[0].length; i += 1) {
+    for (let j = 0; j < m1.length; j += 1) {
+      let matrixEl = 0;
+      for (let k = 0; k < m2.length; k += 1) {
+        matrixEl += m1[j][k] * m2[k][i];
+      }
+      resultMatrix[j][i] = matrixEl;
+    }
+  }
+  return resultMatrix;
 }
 
 
